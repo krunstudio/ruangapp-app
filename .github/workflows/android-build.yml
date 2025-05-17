@@ -29,18 +29,14 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Run Yarn Install
+      - name: Install Dependencies
+        run: npm install            
+      - name: Build APK
         run: |
-             cd ./packages/app-mobile/
-             npm i -g corepack
-             yarn install             
-      - name: Build application
-        run: |
-             cd ./packages/app-mobile/android
-             ./gradlew assembleDebug             
-      - name: Upload application
+          cd android
+          ./gradlew assembleRelease           
+      - name: Upload APK
         uses: actions/upload-artifact@main
         with:
-          name: app
-          path: ./packages/app-mobile/android/app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 3
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
