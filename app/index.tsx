@@ -3,6 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Image, SafeAreaView, Text, View } from "react-native";
 import RuangAppLogo from '../assets/images/ruangapp-logo.svg';
 
+
 export default function Index() {
   return (
     <SafeAreaView>
